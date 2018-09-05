@@ -3,7 +3,7 @@
 
 ## Install stable branch
 
->git clone -b egm_tnp_Moriond18_v2.0 git@github.com:lsoffi/egm_tnp_analysis.git
+>git clone -b tnp_2017datamc_IDV2_10_2_0 https://github.com/swagata87/egm_tnp_analysis
 
 
 
@@ -149,10 +149,15 @@ Here one has to update the name of the directory whre the files will be located 
 
 Here one nees to add the PU MC mix numbers that are available here: http://cmslxr.fnal.gov/source/SimGeneral/MixingModule/python/?v=CMSSW_9_4_0
 
+One also needs to update sample names here:
+etc/inputs/tnpSampleDef.py
 
 3.The data PU distrubtions can be computed using the following instructions (similar to what is done in step1):
 
 pileupCalc.py -i /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions17/13TeV/PromptReco/Cert_294927-306462_13TeV_PromptReco_Collisions17_JSON.txt --inputLumiJSON /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions17/13TeV/PileUp/pileup_latest.txt --calcMode true --minBiasXsec 69200 --maxPileupBin 100 --numPileupBins 100 pileup_2017_41fb.root
+
+Other pu files for each run, like pileup_2017_RUNB.root, pileup_2017_RUNC.root etc, can be copied from previous location. The previous location of pu directory can be found in github. For example, in this version, the location is,  
+/eos/cms/store/group/phys_egamma/swmukher/tnp/ID_V2_2017/PU
 
 
 The nvtx and rho histos are not needed because we will use the pu method (type = 0) for the reweight.
