@@ -3,14 +3,14 @@
 #############################################################
 # flag to be Tested
 flags = {
-    'passingLoose94X'   : '(passingLoose94X  == 1)',
-    'passingMedium94X'  : '(passingMedium94X == 1)',
-    'passingTight94X'   : '(passingTight94X  == 1)',
+    'passingLoose100XV2'   : '(passingLoose100XV2  == 1)',
+    'passingMedium100XV2'  : '(passingMedium100XV2 == 1)',
+    'passingTight100XV2'   : '(passingTight100XV2  == 1)',
     'passingMVA94Xwp80' : '(passingMVA94Xwp80 == 1)',
     'passingMVA94Xwp90' : '(passingMVA94Xwp90 == 1)',
     }
 
-baseOutDir = 'results/Moriond18/tnpPhoID/runBE/'
+baseOutDir = 'results/Moriond18/tnpPhoID/runBCDEF/'
 
 #############################################################
 ########## samples definition  - preparing the samples
@@ -27,10 +27,10 @@ samplesDef = {
     'tagSel' : tnpSamples.Moriond18_94X['DY_1j_madgraph'].clone(),
 }
 ## can add data sample easily
-#samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017C'] )
-#samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017D'] )
-#samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017E'] )
-#samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017F'] )
+samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017C'] )
+samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017D'] )
+samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017E'] )
+samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017F'] )
 
 ## some sample-based cuts... general cuts defined here after
 ## require mcTruth on MC DY samples and additional cuts
@@ -57,7 +57,7 @@ if not samplesDef['tagSel'] is None:
 
 ## set MC weight, can use several pileup rw for different data taking 
 
-weightName = 'weights_2017_runB.totWeight'
+weightName = 'weights_2017_runBCDEF.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)

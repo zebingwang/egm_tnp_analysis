@@ -7,17 +7,20 @@ cutpass90 = '(( abs(probe_sc_eta) < 0.8 && probe_Ele_nonTrigMVA > %f ) ||  ( abs
 
 # flag to be Tested
 flags = {
-    'passingVeto94X'    : '(passingVeto94X   == 1)',
-    'passingLoose94X'   : '(passingLoose94X  == 1)',
-    'passingMedium94X'  : '(passingMedium94X == 1)',
-    'passingTight94X'   : '(passingTight94X  == 1)',
-    'passingMVA94Xwp80iso' : '(passingMVA94Xwp80iso == 1)',
-    'passingMVA94Xwp90iso' : '(passingMVA94Xwp90iso == 1)',
-    'passingMVA94Xwp80noiso' : '(passingMVA94Xwp80noiso == 1)',
-    'passingMVA94Xwp90noiso' : '(passingMVA94Xwp90noiso == 1)',
+    'passingVeto94XV2'    : '(passingVeto94XV2   == 1)',
+    'passingLoose94XV2'   : '(passingLoose94XV2  == 1)',
+    'passingMedium94XV2'  : '(passingMedium94XV2 == 1)',
+    'passingTight94XV2'   : '(passingTight94XV2  == 1)',
+    'passingMVA94Xwp80isoV2' : '(passingMVA94Xwp80isoV2 == 1)',
+    'passingMVA94Xwp90isoV2' : '(passingMVA94Xwp90isoV2 == 1)',
+    'passingMVA94Xwp80noisoV2' : '(passingMVA94Xwp80noisoV2 == 1)',
+    'passingMVA94Xwp90noisoV2' : '(passingMVA94Xwp90noisoV2 == 1)',
+    'passingMVA94XwpLisoV2'    : '(passingMVA94XwpLisoV2 == 1)',
+    'passingMVA94XwpLnoisoV2'  : '(passingMVA94XwpLnoisoV2 == 1)',
+    'passingMVA94XwpHZZisoV2'  : '(passingMVA94XwpHZZisoV2 == 1)',
     }
 
-baseOutDir = 'results/Moriond18/tnpEleID/runBDEF/'
+baseOutDir = 'results/Moriond18/tnpEleID/runBCDEF/'
 
 #############################################################
 ########## samples definition  - preparing the samples
