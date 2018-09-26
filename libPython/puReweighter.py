@@ -170,7 +170,8 @@ puMC = {
 #puMCscenario = 'Spring2016MC_PUscenarioV1'
 puMCscenario = 'Moriond18MC_mix_2017'
 customWeightsName= 'weights'
-puDirEOS = '/eos/cms/store/group/phys_egamma/swmukher/tnp/ID_V2_2017/PU/'
+###puDirEOS = '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017/PU/'
+puDirEOS = '/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_01162018/PU/'
 
 #### Compute weights for all data epoch specified below
 puDataEpoch = {
@@ -179,7 +180,7 @@ puDataEpoch = {
     '2017_runD'  : puDirEOS +'pileup_2017_RUND.root' ,
     '2017_runE'  : puDirEOS +'pileup_2017_RUNE.root' ,
     '2017_runF' : puDirEOS + 'pileup_2017_RUNF.root',    
-    '2017_runBCDEF' : puDirEOS + 'pileup_2017_40fb.root',
+    '2017_runBCDEF' : puDirEOS + 'pileup_2017_41fb.root',
     }
 
 nVtxDataEpoch = {
