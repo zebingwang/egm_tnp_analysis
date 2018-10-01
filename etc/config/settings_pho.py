@@ -6,8 +6,8 @@ flags = {
     'passingLoose100XV2'   : '(passingLoose100XV2  == 1)',
     'passingMedium100XV2'  : '(passingMedium100XV2 == 1)',
     'passingTight100XV2'   : '(passingTight100XV2  == 1)',
-    'passingMVA94Xwp80' : '(passingMVA94Xwp80 == 1)',
-    'passingMVA94Xwp90' : '(passingMVA94Xwp90 == 1)',
+    'passingMVA94XV2wp80' : '(passingMVA94XV2wp80 == 1)',
+    'passingMVA94XV2wp90' : '(passingMVA94XV2wp90 == 1)',
     }
 
 baseOutDir = 'results/Moriond18/tnpPhoID/runBCDEF/'
