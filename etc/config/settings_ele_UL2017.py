@@ -32,9 +32,9 @@ tnpTreeDir = 'tnpEleIDs'
 
 samplesDef = {
     'data'   : tnpSamples.UL2017['data_Run2017B'].clone(),
-    'mcNom'  : tnpSamples.UL2017['DY_1j_madgraph'].clone(),
+    'mcNom'  : tnpSamples.UL2017['DY_madgraph'].clone(),
     'mcAlt'  : tnpSamples.UL2017['DY_amcatnloext'].clone(),
-    'tagSel' : tnpSamples.UL2017['DY_1j_madgraph'].clone(),
+    'tagSel' : tnpSamples.UL2017['DY_madgraph'].clone(),
 }
 
 ## can add data sample easily
@@ -71,9 +71,9 @@ weightName = 'weights_2017_runBCDEF.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_fs/DY_1j_madgraph_ele.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_fs/DY_amcatnloext_ele.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_fs/DY_1j_madgraph_ele.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_miniAOD/DY_madgraph_ele.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_miniAOD/DY_amcatnloext_ele.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/UL2017/PU_miniAOD/DY_madgraph_ele.pu.puTree.root')
 
 
 #############################################################

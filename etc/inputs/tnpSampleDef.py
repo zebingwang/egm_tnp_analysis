@@ -11,7 +11,9 @@ from libPython.tnpClassUtils import tnpSample
 eosLegacyReReco2016 = '/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/'
 eosReReco2017 = '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/'
 eosPromptReco2018 = '/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/'
-eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017/'
+#eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017/'
+eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017_MINIAOD_Nm1/'
+
 
 
 ReReco2017 = {
@@ -78,14 +80,14 @@ PromptReco2018 = {
 
 UL2017 = {
     ### MiniAOD TnP for IDs scale factors
-    'DY_1j_madgraph'              : tnpSample('DY_1j_madgraph',
-                                       eosUL2017 + 'mc_fs.root',
+    'DY_madgraph'              : tnpSample('DY_madgraph',
+                                       eosUL2017 + 'DYJetsToEE.root ',
                                        isMC = True, nEvts =  -1 ),
 #    'DY_amcatnlo'                 : tnpSample('DY_amcatnlo',
 #                                       eosUL2017 + 'DYJetsToLLM50amcatnloFXFX.root',
 #                                       isMC = True, nEvts =  -1 ),
     'DY_amcatnloext'                 : tnpSample('DY_amcatnloext',
-                                       eosUL2017 + 'mc_fs.root',
+                                       eosUL2017 + 'DYJetsToLL_amcatnloFXFX.root',
                                        isMC = True, nEvts =  -1 ),
 
 
