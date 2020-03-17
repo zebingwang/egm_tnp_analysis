@@ -3,21 +3,18 @@
 
 ## Install stable branch
 
->git clone -b tnp_2017datamc_IDV2_10_2_0 https://github.com/swagata87/egm_tnp_analysis
-
-
+>git clone -b egm_tnp_CleanedCodeForUL_17March2020  https://github.com/swagata87/egm_tnp_analysis
 
 > cd egm_tnp_analysis
 
-no compilation is required (this will auto compile the C++ code automatically) but you need ROOT and RooFit installed.
+> cd egm_tnp_analysis
 
-This can be run on a laptop, does not require cmssw environment (still requires the setup to be run)
+> source etc/scripts/setupUL.sh (need ROOT>6.10)
+
+> make
+
 
 ## Quick description
-
-First you need to setup the environment, especially on lxplus (do not use cmsenv from cmssw)
-
-> source etc/scritps/setup.sh
 
 Package to handle analysis of tnp trees. The main tool is the python fitter
 
@@ -38,7 +35,7 @@ Help message:
 The settings have always to be passed to the fitter
 >    python tnpEGM_fitter.py etc/config/settings.py 
 
-Therefore several "settings.py" files  can be setup (for different run period for instance)
+Several "settings*.py" files are setup for different eras and are located all in etc/config/
 
 
 ## The different fitting steps
@@ -134,9 +131,42 @@ to the fitter. One can handle complex flags with a cut string (root cut string):
     
     Define in this section the init parameters for the different fit, can be tuned to improve convergence.
 
-====================
-   
 
+
+##Changes for UL preparation:
+
+MPORTANT-1: one single tnpSampleDef.py file for all eras.
+
+IMPORTANT-2: I used a specific name system that i would ask you to follow and maintain also in the future for next eras:
+
+If i want to run on PromptReco2018, then:
+
+1. In  tnpSampleDef.py i add an eos directory called eosPromptReco2018 and a module called PromptReco2018 with files inside
+
+2. I use a dedicated setting_ele_PromptReco2018.py and setting_pho_PromptReco2018.py where inside:
+
+    2.1 i specifically call the module  PromptReco2018
+
+    2.2 I call the output directory results/PromptReco2018/blabla
+
+
+At the moment the eras are:
+
+LegacyReReco2016
+
+ReReco2017
+
+PromptReco2018
+
+UL2017
+
+We will add soon:
+
+UL2018
+
+UL2016
+   
+====================
 
 ##  Update PU weights 
 
