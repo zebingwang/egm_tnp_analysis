@@ -132,10 +132,9 @@ to the fitter. One can handle complex flags with a cut string (root cut string):
     Define in this section the init parameters for the different fit, can be tuned to improve convergence.
 
 
+## Changes for UL preparation:
 
-##Changes for UL preparation:
-
-MPORTANT-1: one single tnpSampleDef.py file for all eras.
+IMPORTANT-1: one single tnpSampleDef.py file for all eras.
 
 IMPORTANT-2: I used a specific name system that i would ask you to follow and maintain also in the future for next eras:
 
