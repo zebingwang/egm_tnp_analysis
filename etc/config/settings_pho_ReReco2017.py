@@ -22,9 +22,9 @@ tnpTreeDir = 'tnpPhoIDs'
 
 samplesDef = {
     'data'   : tnpSamples.ReReco2017['data_Run2017B'].clone(),
-    'mcNom'  : tnpSamples.ReReco2017['DY_1j_madgraph'].clone(),
+    'mcNom'  : tnpSamples.ReReco2017['DY_madgraph'].clone(),
     'mcAlt'  : tnpSamples.ReReco2017['DY_amcatnloext'].clone(),
-    'tagSel' : tnpSamples.ReReco2017['DY_1j_madgraph'].clone(),
+    'tagSel' : tnpSamples.ReReco2017['DY_madgraph'].clone(),
 }
 ## can add data sample easily
 samplesDef['data'].add_sample( tnpSamples.ReReco2017['data_Run2017C'] )
@@ -61,9 +61,9 @@ weightName = 'weights_2017_runBCDEF.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017/PU/DY_1j_madgraph_pho.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017/PU/DY_amcatnloext_pho.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017/PU/DY_1j_madgraph_pho.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/PU/DY_madgraph_pho.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/PU/DY_amcatnloext_pho.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/PU/DY_madgraph_pho.pu.puTree.root')
 
 
 

@@ -17,6 +17,10 @@ eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017_MI
 
 
 ReReco2017 = {
+
+    'DY_madgraph'              : tnpSample('DY_madgraph',
+                                       eosReReco2017 + 'DYJetsToLL.root',
+                                       isMC = True, nEvts =  -1 ),
     'DY_1j_madgraph'              : tnpSample('DY_1j_madgraph',
                                        eosReReco2017 + 'DY1JetsToLLM50madgraphMLM.root',
                                        isMC = True, nEvts =  -1 ),
