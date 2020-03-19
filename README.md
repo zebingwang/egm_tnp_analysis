@@ -3,9 +3,7 @@
 
 ## Install stable branch
 
->git clone -b egm_tnp_CleanedCodeForUL_17March2020  https://github.com/swagata87/egm_tnp_analysis
-
-> cd egm_tnp_analysis
+>git clone -b egm_tnp_CleanedCodeForUL_17March2020  https://github.com/lsoffi/egm_tnp_analysis
 
 > cd egm_tnp_analysis
 
