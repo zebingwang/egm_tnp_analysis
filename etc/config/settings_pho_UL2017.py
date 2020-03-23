@@ -47,7 +47,7 @@ if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_mcTruth()
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_mcTruth()
 if not samplesDef['tagSel'] is None:
     samplesDef['tagSel'].rename('mcAltSel_DY_madgraph')
-    samplesDef['tagSel'].set_cut('tag_Ele_pt > 35')
+    samplesDef['tagSel'].set_cut('tag_Ele_pt > 37')
 
 ## set MC weight, simple way (use tree weight) 
 #weightName = 'totWeight'
