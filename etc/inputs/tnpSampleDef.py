@@ -10,7 +10,7 @@ from libPython.tnpClassUtils import tnpSample
 ### eos repositories
 eosLegacyReReco2016 = '/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/'
 eosReReco2017 = '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/'
-eosPromptReco2018 = '/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/'
+eosReReco2018 = '/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/'
 #eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017/'
 eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017_MINIAOD_Nm1/'
 
@@ -62,22 +62,22 @@ LegacyReReco2016 = {
 }
 
 
-PromptReco2018 = {
+ReReco2018 = {
     ### MiniAOD TnP for IDs scale 
 
     'DY_madgraph'              : tnpSample('DY_madgraph',
-                                            eosPromptReco2018 + 'DYJetsToLLmadgraphMLM.root',
+                                            eosReReco2018 + 'DYJetsToLLmadgraphMLM.root',
                                             isMC = True, nEvts =  -1 ),
 
     'DY_powheg'              : tnpSample('DY_powheg',
-                                            eosPromptReco2018 + 'DYToEEpowheg.root',
+                                            eosReReco2018 + 'DYToEEpowheg.root',
                                             isMC = True, nEvts =  -1 ),
     
 
-    'data_Run2018A' : tnpSample('data_Run2018A' , eosPromptReco2018 + 'RunA.root' , lumi = 10.723),  
-    'data_Run2018B' : tnpSample('data_Run2018B' , eosPromptReco2018 + 'RunB.root' , lumi = 5.964),
-    'data_Run2018C' : tnpSample('data_Run2018C' , eosPromptReco2018 + 'RunC.root' , lumi = 6.382),
-    'data_Run2018D' : tnpSample('data_Run2018D' , eosPromptReco2018 + 'RunD.root' , lumi = 29.181), 
+    'data_Run2018A' : tnpSample('data_Run2018A' , eosReReco2018 + 'RunA.root' , lumi = 10.723),  
+    'data_Run2018B' : tnpSample('data_Run2018B' , eosReReco2018 + 'RunB.root' , lumi = 5.964),
+    'data_Run2018C' : tnpSample('data_Run2018C' , eosReReco2018 + 'RunC.root' , lumi = 6.382),
+    'data_Run2018D' : tnpSample('data_Run2018D' , eosReReco2018 + 'RunD.root' , lumi = 29.181), 
 
     }
 
