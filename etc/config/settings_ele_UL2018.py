@@ -38,7 +38,6 @@ samplesDef = {
 }
 
 ## can add data sample easily
-samplesDef['data'].add_sample( tnpSamples.UL2018['data_Run2018A'] )
 samplesDef['data'].add_sample( tnpSamples.UL2018['data_Run2018B'] )
 samplesDef['data'].add_sample( tnpSamples.UL2018['data_Run2018C'] )
 samplesDef['data'].add_sample( tnpSamples.UL2018['data_Run2018D'] )
