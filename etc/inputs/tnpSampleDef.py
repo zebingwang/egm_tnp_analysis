@@ -1,7 +1,7 @@
 from libPython.tnpClassUtils import tnpSample
 
 #github branches
-#LegacyReReco2016: https://github.com/swagata87/egm_tnp_analysis/tree/Legacy2016_94XIDv2 
+#LegacyReReco2016: https://github.com/swagata87/egm_tnp_analysis/tree/Legacy2016_94XIDv2
 #ReReco2017: https://github.com/swagata87/egm_tnp_analysis/tree/tnp_2017datamc_IDV2_10_2_0
 #PromptReco2018: https://github.com/swagata87/egm_tnp_analysis/tree/egm_tnp_Prompt2018_102X_10222018_MC102XECALnoiseFix200kRelVal
 #UL2017: https://github.com/swagata87/egm_tnp_analysis/blob/UL2017Final/etc/inputs/tnpSampleDef.py
@@ -10,6 +10,7 @@ from libPython.tnpClassUtils import tnpSample
 ### eos repositories
 eosLegacyReReco2016 = '/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/'
 eosReReco2017 = '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/'
+#eosReReco2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/ReReco17-17Nov2017_MINIAOD_Nm1/'#bing
 eosReReco2018 = '/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/'
 #eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017/'
 eosUL2017 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017_MINIAOD_Nm1/'
@@ -21,7 +22,8 @@ eosUL2016 = '/eos/cms/store/group/phys_egamma/akapoor/Tag-and-Probe_Tree/UL2016_
 ReReco2017 = {
 
     'DY_madgraph'              : tnpSample('DY_madgraph',
-                                       eosReReco2017 + 'DYJetsToLL.root',
+                                       #eosReReco2017 + 'DYJetsToLL.root',
+                                       eosReReco2017 + 'DY1JetsToLLM50madgraphMLM.root',
                                        isMC = True, nEvts =  -1 ),
     'DY_1j_madgraph'              : tnpSample('DY_1j_madgraph',
                                        eosReReco2017 + 'DY1JetsToLLM50madgraphMLM.root',
@@ -42,12 +44,40 @@ ReReco2017 = {
 
     }
 
+'''
+#### bing
+ReReco2017 = {
+
+    'DY_madgraph'              : tnpSample('DY_madgraph',
+                                       eosReReco2017 + 'DYJetsToLL_madgraphMLM.root',
+                                       isMC = True, nEvts =  -1 ),
+    'DY_1j_madgraph'              : tnpSample('DY_1j_madgraph',
+                                       eosReReco2017 + 'DY1JetsToLL_madgraphMLM.root',
+                                       isMC = True, nEvts =  -1 ),
+#    'DY_amcatnlo'                 : tnpSample('DY_amcatnlo',
+#                                       eosMoriond18 + 'DYJetsToLLM50amcatnloFXFX.root',
+#                                       isMC = True, nEvts =  -1 ),
+    'DY_amcatnloext'                 : tnpSample('DY_amcatnloext',
+                                       '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/DYJetsToLLM50amcatnloFXFXext.root',
+                                       isMC = True, nEvts =  -1 ),
+
+
+    'data_Run2017B' : tnpSample('data_Run2017B' , eosReReco2017 + 'SingleEle_RunB.root' , lumi = 4.794 ),
+    'data_Run2017C' : tnpSample('data_Run2017C' , eosReReco2017 + 'SingleEle_RunC.root' , lumi = 9.753),
+    'data_Run2017D' : tnpSample('data_Run2017D' , eosReReco2017 + 'SingleEle_RunD.root' , lumi = 4.248 ),
+    'data_Run2017E' : tnpSample('data_Run2017E' , eosReReco2017 + 'SingleEle_RunE.root' , lumi = 9.314),
+    'data_Run2017F' : tnpSample('data_Run2017F' , eosReReco2017 + 'SingleEle_RunF.root' , lumi = 13.514),
+
+    }
+'''
+
+
 LegacyReReco2016 = {
 
-    'DY_madgraph' : tnpSample('DY_madgraph', 
+    'DY_madgraph' : tnpSample('DY_madgraph',
                                         eosLegacyReReco2016 + 'TnPTree_DY_M50_madgraphMLM.root',
                                         isMC = True, nEvts =  -1 ),
-    'DY_amcatnlo' : tnpSample('DY_amcatnlo', 
+    'DY_amcatnlo' : tnpSample('DY_amcatnlo',
                                         eosLegacyReReco2016 + 'TnPTree_DY_M50_amcatnloFXFX.root',
                                         isMC = True, nEvts =  -1 ),
 
@@ -65,7 +95,7 @@ LegacyReReco2016 = {
 
 
 ReReco2018 = {
-    ### MiniAOD TnP for IDs scale 
+    ### MiniAOD TnP for IDs scale
 
     'DY_madgraph'              : tnpSample('DY_madgraph',
                                             eosReReco2018 + 'DYJetsToLLmadgraphMLM.root',
@@ -74,12 +104,12 @@ ReReco2018 = {
     'DY_powheg'              : tnpSample('DY_powheg',
                                             eosReReco2018 + 'DYToEEpowheg.root',
                                             isMC = True, nEvts =  -1 ),
-    
 
-    'data_Run2018A' : tnpSample('data_Run2018A' , eosReReco2018 + 'RunA.root' , lumi = 10.723),  
+
+    'data_Run2018A' : tnpSample('data_Run2018A' , eosReReco2018 + 'RunA.root' , lumi = 10.723),
     'data_Run2018B' : tnpSample('data_Run2018B' , eosReReco2018 + 'RunB.root' , lumi = 5.964),
     'data_Run2018C' : tnpSample('data_Run2018C' , eosReReco2018 + 'RunC.root' , lumi = 6.382),
-    'data_Run2018D' : tnpSample('data_Run2018D' , eosReReco2018 + 'RunD.root' , lumi = 29.181), 
+    'data_Run2018D' : tnpSample('data_Run2018D' , eosReReco2018 + 'RunD.root' , lumi = 29.181),
 
     }
 

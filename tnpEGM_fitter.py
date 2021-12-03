@@ -39,7 +39,7 @@ import libPython.rootUtils as tnpRoot
 if args.flag is None:
     print '[tnpEGM_fitter] flag is MANDATORY, this is the working point as defined in the settings.py'
     sys.exit(0)
-    
+
 if not args.flag in tnpConf.flags.keys() :
     print '[tnpEGM_fitter] flag %s not found in flags definitions' % args.flag
     print '  --> define in settings first'
@@ -47,7 +47,8 @@ if not args.flag in tnpConf.flags.keys() :
     print tnpConf.flags.keys()
     sys.exit(1)
 
-outputDirectory = '%s/%s/' % (tnpConf.baseOutDir,args.flag)
+#outputDirectory = '%s/%s/' % (tnpConf.baseOutDir,args.flag)
+outputDirectory = '%s%s' % (tnpConf.baseOutDir,args.flag)#bing
 
 print '===>  Output directory: '
 print outputDirectory
@@ -63,7 +64,7 @@ if args.checkBins:
         print tnpBins['bins'][ib]['name']
         print '  - cut: ',tnpBins['bins'][ib]['cut']
     sys.exit(0)
-    
+
 if args.createBins:
     if os.path.exists( outputDirectory ):
             shutil.rmtree( outputDirectory )
@@ -138,30 +139,70 @@ if  args.doFit:
     sampleToFit.dump()
     for ib in range(len(tnpBins['bins'])):
         if (args.binNumber >= 0 and ib == args.binNumber) or args.binNumber < 0:
-            if args.altSig and not args.addGaus:
-                tnpRoot.histFitterAltSig(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltSigFit )
-            elif args.altSig and args.addGaus:
-                tnpRoot.histFitterAltSig(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltSigFit_addGaus, 1)
-            elif args.altBkg:
-                tnpRoot.histFitterAltBkg(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltBkgFit )
+            # Get setting file name
+            head, tail = os.path.split(args.settings)
+            print 'etc/config/fitPars/'+(tail).replace('.py','_'+args.flag+'_fitPars.py')
+            if not os.path.isfile('etc/config/fitPars/'+(tail).replace('.py','_'+args.flag+'_fitPars.py')):
+                print "\n===> Using default fit parameters as given in ",args.settings,"file."
+                if args.altSig and not args.addGaus:
+                    tnpRoot.histFitterAltSig(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltSigFit )
+                elif args.altSig and args.addGaus:
+                    tnpRoot.histFitterAltSig(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltSigFit_addGaus, 1)
+                elif args.altBkg:
+                    tnpRoot.histFitterAltBkg(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltBkgFit )
+                else:
+                    tnpRoot.histFitterNominal( sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParNomFit )
             else:
-                tnpRoot.histFitterNominal( sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParNomFit )
+              # Add fitPars directory to the path, so that we can import the dictionary
+              sys.path.append(os.path.abspath("etc/config/fitPars"))
+              # Below line import fit parameter dictionary
+              # fit parameters file format should be like: <setting-conf-file>_<flag>_fitPars.py
+              importSetting4Fit = 'import %s_%s_fitPars as dynamic_fit_pars' % (tail.replace('/','.').split('.py')[0], args.flag)
+              print importSetting4Fit
+              exec(importSetting4Fit)
+              #import settings_pho_UL2017_fitPars as dynamic_fit_pars
+              print "="*20,"\t bin number = ",args.binNumber
+              if not args.binNumber in dynamic_fit_pars.fitpars_perbin.keys():
+                 print "Parameters for bin number ",args.binNumber," does not exists."
+                 print "Please check if the file name ",tail+"_fitPars.py exists in directory etc/config/fitPars"
+                 print "If this file does not exists please create one in the recommended format"
+                 sys.exit()
+              if args.altSig  and not args.addGaus:
+                 tnp_dynamic_AltSigfit_pars = dynamic_fit_pars.fitpars_perbin[args.binNumber]['tnpParAltSigFit']
+                 print "tnp_dynamic_AltSigfit_pars = \n",tnp_dynamic_AltSigfit_pars
+                 print "="*20
+                 tnpRoot.histFitterAltSig( sampleToFit, tnpBins['bins'][ib], tnp_dynamic_AltSigfit_pars)
+              elif args.altSig and args.addGaus:
+                 tnp_dynamic_AltSigfit_pars = dynamic_fit_pars.fitpars_perbin[args.binNumber]['tnpParAltSigFit_addGaus']
+                 print "tnp_dynamic_AltSigfit_pars = \n",tnp_dynamic_AltSigfit_pars
+                 print "="*20
+                 tnpRoot.histFitterAltSig( sampleToFit, tnpBins['bins'][ib], tnp_dynamic_AltSigfit_pars, 1)
+              elif args.altBkg:
+                 tnp_dynamic_AltBkgfit_pars = dynamic_fit_pars.fitpars_perbin[args.binNumber]['tnpParAltBkgFit']
+                 print "tnp_dynamic_AltBkgfit_pars = \n",tnp_dynamic_AltBkgfit_pars
+                 print "="*20
+                 tnpRoot.histFitterAltBkg( sampleToFit, tnpBins['bins'][ib], tnp_dynamic_AltBkgfit_pars)
+              else:
+                 tnp_dynamic_Nomfit_pars = dynamic_fit_pars.fitpars_perbin[args.binNumber]['tnpParNomFit']
+                 print "tnp_dynamic_Nomfit_pars = \n",tnp_dynamic_Nomfit_pars
+                 print "="*20
+                 tnpRoot.histFitterNominal( sampleToFit, tnpBins['bins'][ib], tnp_dynamic_Nomfit_pars )
 
     args.doPlot = True
-     
+
 ####################################################################
 ##### dumping plots
 ####################################################################
 if  args.doPlot:
     fileName = sampleToFit.nominalFit
     fitType  = 'nominalFit'
-    if args.altSig : 
+    if args.altSig :
         fileName = sampleToFit.altSigFit
         fitType  = 'altSigFit'
-    if args.altBkg : 
+    if args.altBkg :
         fileName = sampleToFit.altBkgFit
         fitType  = 'altBkgFit'
-        
+
     plottingDir = '%s/plots/%s/%s' % (outputDirectory,sampleToFit.name,fitType)
     if not os.path.exists( plottingDir ):
         os.makedirs( plottingDir )
@@ -176,7 +217,7 @@ if  args.doPlot:
 
 
 ####################################################################
-##### dumping egamma txt file 
+##### dumping egamma txt file
 ####################################################################
 if args.sumUp:
     sampleToFit.dump()
@@ -196,13 +237,13 @@ if args.sumUp:
         info['tagSel'   ] = tnpConf.samplesDef['tagSel'].histFile
 
     effis = None
-    effFileName ='%s/egammaEffi.txt' % outputDirectory 
+    effFileName ='%s/egammaEffi.txt' % outputDirectory
     fOut = open( effFileName,'w')
-    
+
     for ib in range(len(tnpBins['bins'])):
         effis = tnpRoot.getAllEffi( info, tnpBins['bins'][ib] )
 
-        ### formatting assuming 2D bining -- to be fixed        
+        ### formatting assuming 2D bining -- to be fixed
         v1Range = tnpBins['bins'][ib]['title'].split(';')[1].split('<')
         v2Range = tnpBins['bins'][ib]['title'].split(';')[2].split('<')
         if ib == 0 :
@@ -212,7 +253,7 @@ if args.sumUp:
             astr = '### var2 : %s' % v2Range[1]
             print astr
             fOut.write( astr + '\n' )
-            
+
         astr =  '%+8.3f\t%+8.3f\t%+8.3f\t%+8.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f' % (
             float(v1Range[0]), float(v1Range[2]),
             float(v2Range[0]), float(v2Range[2]),
