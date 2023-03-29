@@ -20,7 +20,7 @@
 
 #2016
 #Bins=( 40 41 43 44 45 46 48 49 )
-Bins=( 0 )
+Bins=( 14 15 )
 nBin=${#Bins[@]}
 
 for ((iBin=0; iBin<$nBin; iBin++))
@@ -66,8 +66,21 @@ for ((iBin=0; iBin<$nBin; iBin++))
     #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2018.py --flag passALPPreselection --doFit --altBkg --iBin ${Bins[$iBin]}
 
     ## UL17
-    python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2017.py --flag passALPPreselection --doFit --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2017.py --flag passALPPreselection --doFit --iBin ${Bins[$iBin]}
     #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2017.py --flag passALPPreselection --doFit --mcSig --altSig --iBin ${Bins[$iBin]}
     #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2017.py --flag passALPPreselection --doFit --altSig --iBin ${Bins[$iBin]}
     #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2017.py --flag passALPPreselection --doFit --altBkg --iBin ${Bins[$iBin]}
+
+    ## UL16-pre
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_preVFP.py --flag passALPPreselection --doFit --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_preVFP.py --flag passALPPreselection --doFit --mcSig --altSig --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_preVFP.py --flag passALPPreselection --doFit --altSig --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_preVFP.py --flag passALPPreselection --doFit --altBkg --iBin ${Bins[$iBin]}
+
+    ## UL16-post
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_postVFP.py --flag passALPPreselection --doFit --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_postVFP.py --flag passALPPreselection --doFit --mcSig --altSig --iBin ${Bins[$iBin]}
+    #python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_postVFP.py --flag passALPPreselection --doFit --altSig --iBin ${Bins[$iBin]}
+    python tnpEGM_fitter.py etc/config/settings_pho_ALP_UL2016_postVFP.py --flag passALPPreselection --doFit --altBkg --iBin ${Bins[$iBin]}
+
 done

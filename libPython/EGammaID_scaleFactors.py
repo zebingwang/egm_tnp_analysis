@@ -139,8 +139,8 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
     sfminmax =  findMinMax( sfList )
     sfMin = sfminmax[0]
     sfMin = 0.78
-    #sfMax = 1.52
-    sfMax = 1.31
+    sfMax = 1.52
+    #sfMax = 1.31
     #sfMin = sfminmax[0]#bing
     #sfMax = 2.1#bing
 
@@ -263,8 +263,8 @@ def diagnosticErrorPlot( effgr, ierror, nameout ):
     errorNames = efficiency.getSystematicNames()
     c2D_Err = rt.TCanvas('canScaleFactor_%s' % errorNames[ierror] ,'canScaleFactor: %s' % errorNames[ierror],1000,600)
     c2D_Err.Divide(2,1)
-    c2D_Err.GetPad(1).SetLogy()
-    c2D_Err.GetPad(2).SetLogy()
+    #c2D_Err.GetPad(1).SetLogy()
+    #c2D_Err.GetPad(2).SetLogy()
     c2D_Err.GetPad(1).SetRightMargin(0.15)
     c2D_Err.GetPad(1).SetLeftMargin( 0.15)
     c2D_Err.GetPad(1).SetTopMargin(  0.10)
@@ -364,6 +364,11 @@ def doEGM_SFs(filein, lumi, axis = ['pT','eta'] ):
     h2SF      = effGraph.ptEtaScaleFactor_2DHisto(-1)
     h2Error   = effGraph.ptEtaScaleFactor_2DHisto( 0)  ## only error bars
 
+    #h2SF.GetYaxis().SetNdivisions(505)#bing
+    #h2SF.GetYaxis().SetNdivisions(280)
+    #h2SF.GetYaxis().ChangeLabel(1,-1,-1,-1,-1,3,'10')
+    #h2SF.GetYaxis().SetTickLength(0.1)#bing
+
     rt.gStyle.SetPalette(1)
     rt.gStyle.SetPaintTextFormat('1.3f');
     rt.gStyle.SetOptTitle(1)
@@ -376,8 +381,8 @@ def doEGM_SFs(filein, lumi, axis = ['pT','eta'] ):
     c2D.GetPad(2).SetRightMargin(0.15)
     c2D.GetPad(2).SetLeftMargin( 0.15)
     c2D.GetPad(2).SetTopMargin(  0.10)
-    c2D.GetPad(1).SetLogy()
-    c2D.GetPad(2).SetLogy()
+    #c2D.GetPad(1).SetLogy()
+    #c2D.GetPad(2).SetLogy()
 
 
     c2D.cd(1)

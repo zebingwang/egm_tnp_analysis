@@ -1,0 +1,98 @@
+DEBUG 2022-01-17 11:04:14.475 UTC: 	 CRAB Client version: v3.211130
+DEBUG 2022-01-17 11:04:14.475 UTC: 	 Running on: Linux lxplus7110.cern.ch 3.10.0-1160.49.1.el7.x86_64 #1 SMP Tue Nov 30 15:51:32 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-01-17 11:04:14.475 UTC: 	 Executing command: 'checkwrite'
+DEBUG 2022-01-17 11:04:14.484 UTC: 	 Found CRAB cache file /afs/cern.ch/user/z/zewang/.crab3
+DEBUG 2022-01-17 11:04:14.485 UTC: 	 Checking credentials
+DEBUG 2022-01-17 11:04:14.485 UTC: 	 Found proxy file /tmp/x509up_u117617
+DEBUG 2022-01-17 11:04:14.485 UTC: 	 Getting proxy life time left
+DEBUG 2022-01-17 11:04:14.485 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u117617
+DEBUG 2022-01-17 11:04:15.201 UTC: 	 output : 39759
+39759
+
+ error: 
+ retcode : 0
+DEBUG 2022-01-17 11:04:15.201 UTC: 	 Proxy valid for 11:02:39 hours
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Command use: checkwrite
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Options use: ['--site=T2_CN_Beijing']
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Instance is None
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Server base url is None
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Retrieving username ...
+DEBUG 2022-01-17 11:04:15.202 UTC: 	 Retrieving username from CRIC...
+DEBUG 2022-01-17 11:04:41.136 UTC: 	 username is zewang
+INFO 2022-01-17 11:04:41.137 UTC: 	 Will check write permission in the default location /store/user/<username>
+INFO 2022-01-17 11:04:41.137 UTC: 	 Validating LFN /store/user/zewang...
+INFO 2022-01-17 11:04:41.137 UTC: 	 LFN /store/user/zewang is valid.
+INFO 2022-01-17 11:04:41.152 UTC: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2022-01-17 11:04:41.152 UTC: 	 Will check write permission in /store/user/zewang on site T2_CN_Beijing
+INFO 2022-01-17 11:04:46.155 UTC: 	 PFN lookup failed
+INFO 2022-01-17 11:04:46.156 UTC: 	   Stderr:
+    /cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/paramiko/transport.py:33: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.
+      from cryptography.hazmat.backends import default_backend
+    Traceback (most recent call last):
+      File "/tmp/lfn2pfn-gcZgyv.py", line 3, in <module>
+        client = Client()
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/client.py", line 84, in __init__
+        super(Client, self).__init__(rucio_host=rucio_host, auth_host=auth_host, account=account, ca_cert=ca_cert, auth_type=auth_type, creds=creds, timeout=timeout, user_agent=user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/accountclient.py", line 51, in __init__
+        super(AccountClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/accountlimitclient.py", line 47, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/metaclient.py", line 46, in __init__
+        super(MetaClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/pingclient.py", line 36, in __init__
+        super(PingClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/replicaclient.py", line 49, in __init__
+        super(ReplicaClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/requestclient.py", line 38, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/rseclient.py", line 48, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/scopeclient.py", line 47, in __init__
+        super(ScopeClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/didclient.py", line 59, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/ruleclient.py", line 45, in __init__
+        super(RuleClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, dq2_wrapper, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/subscriptionclient.py", line 40, in __init__
+        super(SubscriptionClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/lockclient.py", line 45, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/configclient.py", line 45, in __init__
+        super(ConfigClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/touchclient.py", line 42, in __init__
+        super(TouchClient, self).__init__(rucio_host, auth_host, account, ca_cert, auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/importclient.py", line 36, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/exportclient.py", line 36, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/credentialclient.py", line 36, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/diracclient.py", line 40, in __init__
+        auth_type, creds, timeout, user_agent, vo=vo)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/baseclient.py", line 300, in __init__
+        self.__authenticate()
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/baseclient.py", line 973, in __authenticate
+        self.__get_token()
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/baseclient.py", line 888, in __get_token
+        self.__write_token()
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/rucio/client/baseclient.py", line 925, in __write_token
+        makedirs(self.token_path, 0o700)
+      File "/afs/cern.ch/cms/lumi/brilconda-1.0.3/lib/python2.7/os.py", line 157, in makedirs
+        mkdir(name, mode)
+    OSError: [Errno 17] File exists: '/tmp/zewang/zewang/.rucio_zewang'
+    Error in atexit._run_exitfuncs:
+    Traceback (most recent call last):
+      File "/afs/cern.ch/cms/lumi/brilconda-1.0.3/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+        func(*targs, **kargs)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/paramiko/transport.py", line 120, in _join_lingering_threads
+        for thr in _active_threads:
+    TypeError: 'NoneType' object is not iterable
+    Error in sys.exitfunc:
+    Traceback (most recent call last):
+      File "/afs/cern.ch/cms/lumi/brilconda-1.0.3/lib/python2.7/atexit.py", line 24, in _run_exitfuncs
+        func(*targs, **kargs)
+      File "/cvmfs/cms.cern.ch/rucio/x86_64/slc7/py2/current/lib/python2.7/site-packages/paramiko/transport.py", line 120, in _join_lingering_threads
+        for thr in _active_threads:
+    TypeError: 'NoneType' object is not iterable
+    

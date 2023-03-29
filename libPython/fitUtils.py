@@ -1,6 +1,3 @@
-import math
-import re
-from ROOT import tnpFitter
 import ROOT as rt
 rt.gROOT.LoadMacro('./libCpp/histFitter.C+')
 rt.gROOT.LoadMacro('./libCpp/RooCBExGaussShape.cc+')
@@ -12,6 +9,10 @@ rt.gROOT.LoadMacro('./libCpp/RooCMSShapeExp.cc+')  # bing
 
 rt.gROOT.SetBatch(1)
 
+from ROOT import tnpFitter
+
+import re
+import math
 
 minPtForSwitch = 70
 
@@ -92,10 +93,10 @@ def histFitterNominal(sample, tnpBin, tnpWorkspaceParam):
     tnpWorkspaceFunc = [
         "Gaussian::sigResPass(x,meanP,sigmaP)",
         "Gaussian::sigResFail(x,meanF,sigmaF)",
-        "RooCMSShape::bkgPass(x, acmsP, betaP, gammaP, peakP)",
-        "RooCMSShape::bkgFail(x, acmsF, betaF, gammaF, peakF)",
-        # "RooDoubleExp::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
-        # "RooDoubleExp::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
+        #"RooCMSShape::bkgPass(x, acmsP, betaP, gammaP, peakP)",
+        #"RooCMSShape::bkgFail(x, acmsF, betaF, gammaF, peakF)",
+        "RooDoubleExp::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
+        "RooDoubleExp::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
     ]
 
     tnpWorkspace = []
@@ -153,8 +154,8 @@ def histFitterAltSig(sample, tnpBin, tnpWorkspaceParam, isaddGaus=0):
         "RooCBExGaussShape::sigResFail(x,meanF,expr('sqrt(sigmaF*sigmaF+sosF*sosF)',{sigmaF,sosF}),alphaF,nF, expr('sqrt(sigmaF_2*sigmaF_2+sosF*sosF)',{sigmaF_2,sosF}),tailLeft)",
         "RooCMSShape::bkgPass(x, acmsP, betaP, gammaP, peakP)",
         "RooCMSShape::bkgFail(x, acmsF, betaF, gammaF, peakF)",
-        # "RooDoubleExp::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
-        # "RooDoubleExp::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
+        #"RooDoubleExp::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
+        #"RooDoubleExp::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
     ]
     if isaddGaus == 1:
         tnpWorkspaceFunc += ["Gaussian::sigGaussFail(x,meanGF,sigmaGF)", ]
@@ -210,14 +211,14 @@ def histFitterAltBkg(sample, tnpBin, tnpWorkspaceParam):
         "Gaussian::sigResPass(x,meanP,sigmaP)",
         "Gaussian::sigResFail(x,meanF,sigmaF)",
         "Exponential::bkgPass(x, alphaP)",
-        "Exponential::bkgFail(x, alphaF)",
-        # "RooPowerLaw::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
-        # "RooPowerLaw::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
+        #"Exponential::bkgFail(x, alphaF)",
+        #"RooPowerLaw::bkgPass(x, acmsP, betaP, gammaP, peakP)",#bing
+        "RooPowerLaw::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
         # "RooDoubleExp::bkgFail(x, acmsF, betaF, gammaF, peakF)",#bing
-        # "RooTripleExp::bkgPass(x, acmsP, betaP, gammaP, peakP, p1P, p2P)",#bing
-        # "RooTripleExp::bkgFail(x, acmsF, betaF, gammaF, peakF, p1F, p2F)",#bing
-        # "RooCMSShapeExp::bkgPass(x, acmsP, betaP, gammaP, peakP, p1P, p2P)",#bing
-        # "RooCMSShapeExp::bkgFail(x, acmsF, betaF, gammaF, peakF, p1F, p2F)",#bing
+        #"RooTripleExp::bkgPass(x, acmsP, betaP, gammaP, peakP, p1P, p2P)",#bing
+        #"RooTripleExp::bkgFail(x, acmsF, betaF, gammaF, peakF, p1F, p2F)",#bing
+        #"RooCMSShapeExp::bkgPass(x, acmsP, betaP, gammaP, peakP, p1P, p2P)",#bing
+        #"RooCMSShapeExp::bkgFail(x, acmsF, betaF, gammaF, peakF, p1F, p2F)",#bing
     ]
 
     tnpWorkspace = []

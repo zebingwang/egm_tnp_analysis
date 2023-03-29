@@ -312,6 +312,8 @@ class efficiencyList:
 
         h2.GetXaxis().SetTitle("SuperCluster #eta")
         h2.GetYaxis().SetTitle("p_{T} [GeV]")
+        h2.GetYaxis().SetNdivisions(5)#bing
+        #h2.GetYaxis().SetTickLength(0.1)#bing
         return h2
 
 
